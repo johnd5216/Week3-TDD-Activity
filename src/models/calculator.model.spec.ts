@@ -1,6 +1,8 @@
 import { NumericKeys } from '../enums/numeric-keys.enum';
 import { CalculatorModel } from './calculator.model';
 import { ICalculatorModel } from '../interfaces/calculator-model.interface';
+import { OperatorKeys } from '../enums/operator-keys.enum';
+import { ActionKeys } from '../enums/action-keys.enum';
 
 describe('CalculatorModel', (): void => {
 
@@ -55,4 +57,46 @@ describe('CalculatorModel', (): void => {
     expect(displayValue).toEqual('98');
   
   });
+
+  it('should display 9-5 when the 9 key is pressed followed by minus followed by 5', (): void => {
+    calculator.pressNumericKey(NumericKeys.NINE);
+    calculator.pressOperatorKey(OperatorKeys.MINUS);
+    calculator.pressNumericKey(NumericKeys.FIVE);
+  
+    const displayValue: string = calculator.display();
+  
+    expect(displayValue).toEqual(9-5);
+    });
+
+  it('should display 4 when the 9 key is pressed followed by minus followed by 5 followed by equal', (): void => {
+    calculator.pressNumericKey(NumericKeys.NINE);
+    calculator.pressOperatorKey(OperatorKeys.MINUS);
+    calculator.pressNumericKey(NumericKeys.FIVE);
+    calculator.pressActionKey(ActionKeys.EQUALS);
+    
+    const displayValue: string = calculator.display();
+    
+    expect(displayValue).toEqual(45);
+    });
+
+  it('should display 4*3 when the 4 key is pressed followed by mulptiply followed by 3', (): void => {
+    calculator.pressNumericKey(NumericKeys.FOUR);
+    calculator.pressOperatorKey(OperatorKeys.MULT);
+    calculator.pressNumericKey(NumericKeys.THREE);
+  
+    const displayValue: string = calculator.display();
+  
+    expect(displayValue).toEqual(9-5);
+    });
+
+  it('should display 12 when the 4 key is pressed followed by multiply followed by 3 followed by equal', (): void => {
+    calculator.pressNumericKey(NumericKeys.FOUR);
+    calculator.pressOperatorKey(OperatorKeys.MULT);
+    calculator.pressNumericKey(NumericKeys.THREE);
+    calculator.pressActionKey(ActionKeys.EQUALS);
+    
+    const displayValue: string = calculator.display();
+    
+    expect(displayValue).toEqual(12);
+    });
 });
