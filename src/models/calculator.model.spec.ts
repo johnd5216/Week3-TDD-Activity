@@ -1,7 +1,10 @@
 import { NumericKeys } from '../enums/numeric-keys.enum';
 import { CalculatorModel } from './calculator.model';
 import { ICalculatorModel } from '../interfaces/calculator-model.interface';
+<<<<<<< HEAD
 import { OperatorKeys } from '../enums/operator-keys.enum';
+=======
+>>>>>>> f4b789e (multi-operand test)
 import { ActionKeys } from '../enums/action-keys.enum';
 
 describe('CalculatorModel', (): void => {
@@ -58,6 +61,7 @@ describe('CalculatorModel', (): void => {
   
   });
 
+<<<<<<< HEAD
   it('should display 9-5 when the 9 key is pressed followed by minus followed by 5', (): void => {
     calculator.pressNumericKey(NumericKeys.NINE);
     calculator.pressOperatorKey(OperatorKeys.MINUS);
@@ -99,4 +103,19 @@ describe('CalculatorModel', (): void => {
     
     expect(displayValue).toEqual(12);
     });
+=======
+  /*
+  // Test case for multi-operand + multiplication
+  it('should display `14` after `2`, `+`, `3`, `*`, and `4` are pressed', (): void => {
+
+    calculator.pressNumericKey(NumericKeys.TWO);
+    calculator.pressActionKey(ActionKeys.PLUS);
+    calculator.pressNumericKey(NumericKeys.THREE);
+    calculator.pressActionKey(ActionKeys.MULTIPLY);
+    calculator.pressNumericKey(NumericKeys.FOUR);
+    const displayValue: string = calculator.display();
+  
+    expect(displayValue).toEqual('14');
+  });*/
+>>>>>>> f4b789e (multi-operand test)
 });
